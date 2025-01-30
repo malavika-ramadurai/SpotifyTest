@@ -1,0 +1,5 @@
+export const logInBtn= "[data-testid='login-button']"
+export const title= "[variant='titleLarge']"
+export const userName= "[data-testid='login-username']"
+export const password= "[data-testid='login-password']"
+export const webPlayerLoginTxt= "Web Player"
