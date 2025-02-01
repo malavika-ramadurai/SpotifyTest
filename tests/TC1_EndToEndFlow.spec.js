@@ -15,12 +15,12 @@ test.describe.parallel('launch spotify and create playlist', ()=>{
             await loginPage.login(loginTitle);
         })
         await test.step('create playlist', async()=>{
-             await dashboardPage.createPlaylists(playlists)
+             await dashboardPage.createPlaylists()
            // await dashboardPage.renamePlaylist()
         })
         await test.step('search and add songs to the playlist', async()=>{
 
-            await dashboardPage.searchASongAndAdd(playlists)
+            await dashboardPage.searchASongAndAdd()
             //await dashboardPage.addSongToPlaylist()
 
         })
