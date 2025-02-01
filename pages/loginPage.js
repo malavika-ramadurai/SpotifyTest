@@ -13,10 +13,8 @@ export class LoginPage extends BasePage {
         //this.commonFunctions = new CommonFunctions(); // Create an instance of CommonFunctions
     }
     async openApp(url){
-        console.log(url)
         await super.openUrl(url);
         await super.waitForPageLoad();
-        console.log(url)
     }
 async login(loginTitle){
 
@@ -27,10 +25,6 @@ async login(loginTitle){
     await super.waitAndFill (password,password_Login)
     await this.waitAndClick(logInBtn)
     await this.page.locator("text = Your Library").waitFor();
-
-    // await this.page.waitForSelector(this.libraryText);
-    // const isLibraryVisible = await this.page.isVisible(this.libraryText);
-    // expect(isLibraryVisible).toBe(true);
     }
 
 }

@@ -31,6 +31,10 @@ class BasePage {
          const locatorText = await this.page.locator(selector).textContent()
          return  locatorText
      }
+    async getInnerText(selector) {
+        const locatorText = await this.page.locator(selector).allInnerTexts()
+        return  locatorText
+    }
     async waitAndFill(selector, text) {
         return await this.page.fill(selector, text)
     }

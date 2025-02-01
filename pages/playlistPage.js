@@ -6,10 +6,10 @@ export class playlistPage extends basePage{
         super(page);
         this.page=page
     }
-    async openPlayList(){
-        await this.page.getByRole('button', { name: /MJ/ }).first().click();
+    async openPlayList(songName){
+       // await this.page.getByRole('button', { name: /MJ/ }).first().click();
         await this.page.pause()
-        await this.page.getByTestId('playlist-tracklist').getByRole('button', { name: /Remember the Time/ }).click();
+        await this.page.getByTestId('playlist-tracklist').getByRole('button', { name: `Play ${songName}} by` }).isVisible()
         await this.page.pause()
     }
 
