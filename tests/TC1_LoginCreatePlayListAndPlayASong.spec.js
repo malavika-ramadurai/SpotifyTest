@@ -1,4 +1,6 @@
-/* end to end flow. Add items in basket and checkout */
+/*Login to spotify add playlists and add songs to the playlist
+Play a randon song from the playlist
+ */
 import test from '../fixtures/fixtures'
 import {baseurl, loginTitle} from "../config";
 
