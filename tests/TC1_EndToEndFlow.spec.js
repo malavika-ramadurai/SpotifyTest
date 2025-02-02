@@ -1,8 +1,6 @@
 /* end to end flow. Add items in basket and checkout */
 import test from '../fixtures/fixtures'
-import { expect } from '@playwright/test'
-import fs from 'fs'
-import {baseurl, loginTitle,playlists} from "../config";
+import {baseurl, loginTitle} from "../config";
 
 test.describe.parallel('launch spotify and create playlist', ()=>{
     test('launch and login', async({
@@ -25,7 +23,7 @@ test.describe.parallel('launch spotify and create playlist', ()=>{
 
         })
         await test.step('select the playlist and play the song', async()=>{
-            await playlistPage.openPlayList("Remember the time")
+            await playlistPage.openPlayListAndPlayASong()
 
         })
 
