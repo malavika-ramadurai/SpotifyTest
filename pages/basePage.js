@@ -1,4 +1,5 @@
 import {expect} from "@playwright/test";
+import {playlists} from "../config";
 
 class BasePage {
     constructor(page) {
@@ -40,6 +41,11 @@ class BasePage {
     }
     async getByRoleTypeAndClick(selector, text) {
           await this.page.getByRole(selector, text).click()
+    }
+    async randomEntryFromArray(arrayList){
+        const randomList = arrayList[Math.floor(Math.random() * arrayList.length)];
+        return randomList
+
     }
 }
 export default BasePage

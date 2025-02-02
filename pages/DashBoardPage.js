@@ -1,5 +1,5 @@
 import BasePage from "./basePage";
-import { createPlaylist, libraryPlaylist} from "../page_objects/dashBoard";
+import {createPlaylist, libraryPlaylist, logoutButton} from "../page_objects/dashBoard";
 import {playlists} from "../config";
 
 
@@ -9,12 +9,13 @@ export class DashBoardPage extends BasePage {
     constructor(page) {
         super(page);
         this.page = page;
+        this.uniqueNames = [...new Set(playlists.map(playlist => playlist.name))];
+
     }
 
     async createPlaylists() {
 
-        for (const playlistName of this.uniqueNames) {
-            console.log(playlistName)
+        for (const playlistName of this.uniqueNames) {ßßß
             await super.waitAndClick(createPlaylist)
             await this.page.getByRole('menuitem', {name: 'Create a new playlist'}).click();
             await this.renamePlaylist(playlistName)
@@ -47,6 +48,11 @@ export class DashBoardPage extends BasePage {
         }
 
 
+    }
+    async logout(){
+        await this.page.waitForTimeout(3000);
+        await this.page.getByRole('button',{name: ''})
+        await this.page.getByRole('menuitem', {name: 'Log out'}).click();
     }
 
 }
