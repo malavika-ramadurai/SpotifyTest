@@ -1,5 +1,5 @@
 import BasePage from "./basePage";
-import {createPlaylist, libraryPlaylist, logoutButton} from "../page_objects/dashBoard";
+import {createPlaylist, libraryPlaylist} from "../page_objects/dashBoard";
 import {playlists} from "../config";
 
 
@@ -15,7 +15,7 @@ export class DashBoardPage extends BasePage {
 
     async createPlaylists() {
 
-        for (const playlistName of this.uniqueNames) {ßßß
+        for (const playlistName of this.uniqueNames) {
             await super.waitAndClick(createPlaylist)
             await this.page.getByRole('menuitem', {name: 'Create a new playlist'}).click();
             await this.renamePlaylist(playlistName)
@@ -50,8 +50,13 @@ export class DashBoardPage extends BasePage {
 
     }
     async logout(){
+        await this.page.pause();
         await this.page.waitForTimeout(3000);
-        await this.page.getByRole('button',{name: ''})
+        //await this.page.getByTestId(userButton).click({force: true})
+       // await this.page.getByRole('button',{name: ''})
+        await this.page.getByTestId('user-widget-link').click({force: true});
+        //await page.getByTestId('user-widget-dropdown-logout').click();
+
         await this.page.getByRole('menuitem', {name: 'Log out'}).click();
     }
 

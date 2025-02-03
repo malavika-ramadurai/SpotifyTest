@@ -27,13 +27,12 @@ test.describe.parallel('launch spotify and create playlist', ()=>{
         await test.step('select the playlist and play the song', async()=>{
             await playlistPage.openPlayListAndPlayASong()
 
-        })
+        });
 
-    }
-)
-})
-test.afterEach(async ({ dashboardPage }) => {
-    await test.step('logout from the application', async () => {
-        await dashboardPage.logout(); // Assuming you have a logout method in `dashboardPage`
+    });
+    test.afterEach(async ({ dashboardPage }) => {
+        await test.step('logout from the application', async () => {
+            await dashboardPage.logout(); // Assuming you have a logout method in `dashboardPage`
+        });
     });
 });
