@@ -2,7 +2,7 @@
 import test from '../fixtures/fixtures'
 import {baseurl, loginTitle} from "../config";
 
-test.describe.parallel.only('launch spotify and create playlist', ()=>{
+test.describe.parallel('launch spotify and create playlist', ()=>{
     test('launch and login', async({
                                        loginPage,
                                        playlistPage

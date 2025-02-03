@@ -50,13 +50,8 @@ export class DashBoardPage extends BasePage {
 
     }
     async logout(){
-        await this.page.pause();
         await this.page.waitForTimeout(3000);
-        //await this.page.getByTestId(userButton).click({force: true})
-       // await this.page.getByRole('button',{name: ''})
         await this.page.getByTestId('user-widget-link').click({force: true});
-        //await page.getByTestId('user-widget-dropdown-logout').click();
-
         await this.page.getByRole('menuitem', {name: 'Log out'}).click();
     }
 
